@@ -21,9 +21,9 @@
             </Grid.RowDefinitions>
 
             <Label Background="Pink" Foreground="White" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2" Grid.RowSpan="2">
-                Hello this actually works. Neat-o
+                So this actually works. Neat-o
             </Label>
-            <Image Source="images\maybe.png" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0, 35, 10, 5"/>
+            <Image Source="images\nextArrow.png" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0, 35, 10, 5"/>
         </Grid>
 
     </DockPanel>
