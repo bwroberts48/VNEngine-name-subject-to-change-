@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTests", "..\Graph Stru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickTesting", "QuickTesting\QuickTesting.csproj", "{2FDD2E26-6E31-400D-8AC2-66082620B2DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationGUI", "CreationGUI\CreationGUI.csproj", "{AEDC2355-3D34-4CBF-ABBD-F62620F2FFF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2FDD2E26-6E31-400D-8AC2-66082620B2DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FDD2E26-6E31-400D-8AC2-66082620B2DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FDD2E26-6E31-400D-8AC2-66082620B2DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEDC2355-3D34-4CBF-ABBD-F62620F2FFF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEDC2355-3D34-4CBF-ABBD-F62620F2FFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEDC2355-3D34-4CBF-ABBD-F62620F2FFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEDC2355-3D34-4CBF-ABBD-F62620F2FFF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
