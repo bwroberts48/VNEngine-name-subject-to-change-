@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Graph;
-/**********************************************************************************************************************************************************************************************************************
+﻿/**********************************************************************************************************************************************************************************************************************
 * Author:		Brett Sprague
 * Filename:		SceneManager.cs
-* Date Created: 3/28/2019
+* Date Created: 3/28/2020
 *
 * Class: SceneManager
 *
@@ -21,6 +15,12 @@ using Graph;
 *  void AddBranchConnection(int startId, int endId)
 *       Creates a directed edge from the Branch with the given startId to the Branch with the given endId
 ***********************************************************************************************************************************************************************************************************************/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Graph;
 namespace VNEngine
 {
     public class SceneManager

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-/**********************************************************************************************************************************************************************************************************************
+﻿/**********************************************************************************************************************************************************************************************************************
 * Author:		Brett Sprague
 * Filename:		Branch.cs
-* Date Created: 3/28/2019
+* Date Created: 3/28/2020
 *
 * Class: Scene
 *   Inherits from IComparable
@@ -23,6 +18,11 @@ using System.Threading.Tasks;
 *   public int CompareTo(Object obj)
 *   
 ***********************************************************************************************************************************************************************************************************************/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace VNEngine
 {
 
