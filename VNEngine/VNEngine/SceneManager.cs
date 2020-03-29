@@ -28,7 +28,7 @@ namespace VNEngine
         public SceneManager()
         {
             _currSceneID = 0;
-            m_graph = new Graph<Branch, string>();
+           // m_graph = new Graph<Branch, string>();
         }
 
         void AddBranch(string fgImageName, string bgImageName, string displayText)

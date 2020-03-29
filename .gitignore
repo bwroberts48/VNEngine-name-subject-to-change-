@@ -348,3 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+VNEngine/QuickTesting/QuickTesting.csproj
+VNEngine/QuickTesting/Properties/AssemblyInfo.cs
+VNEngine/QuickTesting/Program.cs
+VNEngine/QuickTesting/App.config

@@ -26,7 +26,7 @@ using System.Threading.Tasks;
 namespace VNEngine
 {
 
-    class Branch : IComparable
+    class Branch : IComparable<Branch>
     {
         public Branch(int id, string fgImageName, string bgImageName, string displayText)
         {
@@ -43,18 +43,12 @@ namespace VNEngine
             ++_currLineId;
         }
 
-        //Compares the IDs of branches
-        public int CompareTo(Object obj)
+        public int CompareTo(Branch other)
         {
-            if (obj == null)
+            if (other == null)
                 return 1;
 
-            Branch rhs = obj as Branch;
-
-            if (rhs == null)
-                throw new ArgumentException("Object is not a Branch");
-
-            return _id.CompareTo(rhs._id);
+            return _id.CompareTo(other._id);
         }
 
         private List<Scene> m_scenes;
