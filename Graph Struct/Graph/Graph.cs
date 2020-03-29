@@ -32,7 +32,7 @@ using System.Threading.Tasks;
 
 namespace Graph
 {
-    public class Graph<V, E> where V : class where E : class
+    public class Graph<V, E> where V : IComparable<V> where E : IComparable<E>
     {
         public Graph()
         {
@@ -54,7 +54,7 @@ namespace Graph
 
             for (int i = 0; i < m_vertices.Count && index == -1; ++i)
             {
-                if (m_vertices[i].m_data == data)
+                if (m_vertices[i].m_data.CompareTo(data) == 0)
                     index = i;
             }
 
@@ -107,7 +107,7 @@ namespace Graph
                 for (int j = 0; j < m_vertices[i].m_edges.Count; ++j)
                 {
                     //If the current edge is a match remove it
-                    if (m_vertices[i][j].m_vertexData == data)
+                    if (m_vertices[i][j].m_vertexData.CompareTo(data) == 0)
                         m_vertices[i].m_edges.RemoveAt(j);
                 }
             }
@@ -145,7 +145,7 @@ namespace Graph
             m_vertices[startIndex].InsertEdge(directedEdge);
 
             //If the user wants to insert the directed edge and if the first edge wasn't cyclical also insert a directed edge from the end vertex to the start vertex
-            if (!insertDirectedEdge && start != end)
+            if (!insertDirectedEdge && start.CompareTo(end) != 0)
             {
                 directedEdge = new Edge<V, E>(edgeData, start, weight);
                 m_vertices[endIndex].InsertEdge(directedEdge);

@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 
 namespace Graph
 {
-    public class Vertex<V, E> where V : class where E : class
+    public class Vertex<V, E> where V : IComparable<V> where E : IComparable<E>
     {
         public Vertex()
         {
@@ -58,7 +58,7 @@ namespace Graph
 
             for (int i = 0; i < m_edges.Count && index == -1; ++i)
             {
-                if (m_edges[i].m_edgeData == data)
+                if (m_edges[i].m_edgeData.CompareTo(data) == 0)
                     index = i;
             }
 
