@@ -8,7 +8,7 @@
 * Purpose: Directed unweighted graph wrapper for all branches of scenes in the game. Branches are vertices and text the player chooses to cause a branch are the edges
 *
 * Manager functions:
-*	SceneManager()
+*	private SceneManager()
 *
 * Methods:
 *  void AddScene(string fgImageName, string bgImageName, string displayText)
