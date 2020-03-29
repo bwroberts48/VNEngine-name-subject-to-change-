@@ -43,13 +43,16 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            
             <Label>Foreground Image Path</Label>
             <Label Grid.Row="1">Background Image Path</Label>
             <Label Grid.Row="2">Display Text</Label>
-            <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Create Branch" x:Name="buttonCreateBranch" Click="CreateBranchClick"/>
-            <TextBox Grid.Column="1" x:Name="fgImagePath"/>
-            <TextBox Grid.Column="1" Grid.Row="1" x:Name="bgImagePath"/>
-            <TextBox Grid.Column="1" Grid.Row="2" x:Name="displayText"/>
+
+            <TextBox Grid.Column="1" x:Name="fgPathTB"/>
+            <TextBox Grid.Column="1" Grid.Row="1" x:Name="bgPathTB"/>
+            <TextBox Grid.Column="1" Grid.Row="2" x:Name="displayTextTB"/>
+
+            <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Create Branch" x:Name="buttonCreateBranch" Click="CreateBranch_Click"/>
         </Grid>
         <Label Grid.Column="1"/>
     </Grid>

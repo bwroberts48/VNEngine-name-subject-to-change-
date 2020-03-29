@@ -21,11 +21,15 @@ namespace CreationGUI
         public MainWindow()
         {
             InitializeComponent();
+
+            _gameManager = GameManager.Instance;
         }
 
         private void CreateBranch_Click(object sender, RoutedEventArgs e)
         {
-            
+            _gameManager.Scene_Manager.AddBranch(fgPathTB.Text, bgPathTB.Text, displayTextTB.Text);
         }
+
+        GameManager _gameManager;
     }
 }
