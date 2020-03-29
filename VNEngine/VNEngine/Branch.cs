@@ -30,10 +30,11 @@ namespace VNEngine
     {
         public Branch(int id, string fgImageName = null, string bgImageName = null, string displayText = null)
         {
-            AddScene(fgImageName, bgImageName, displayText);
-
+            m_scenes = new List<Scene>();
             _id = id;
             _currLineId = 0;
+
+            AddScene(fgImageName, bgImageName, displayText);
         }
 
         //Will not change last known values for any fields that are null
