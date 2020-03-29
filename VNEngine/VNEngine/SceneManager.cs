@@ -5,7 +5,7 @@
 *
 * Class: SceneManager
 *
-* Purpose: Directed unweighted graph wrapper for all scenes in the game where scenes are vertices.
+* Purpose: Directed unweighted graph wrapper for all branches of scenes in the game. Branches are vertices and text the player chooses to cause a branch are the edges
 *
 * Manager functions:
 *	SceneManager()
@@ -28,7 +28,7 @@ namespace VNEngine
         public SceneManager()
         {
             _currSceneID = 0;
-           // m_graph = new Graph<Branch, string>();
+            m_graph = new Graph<Branch, string>();
         }
 
         void AddBranch(string fgImageName, string bgImageName, string displayText)
@@ -38,9 +38,10 @@ namespace VNEngine
             ++_currSceneID;
         }
 
-        void AddBranchConnection(int startId, int endId)
+        //Creates a connection from the startId to the endId with the choiceText as the data for the edge
+        void AddBranchConnection(int startId, int endId, string choiceText)
         {
- 
+            m_graph.InsertEdge(new Branch(startId), new Branch(endId), choiceText, 0, true);
         }
 
         private Graph<Branch, string> m_graph;

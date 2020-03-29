@@ -28,7 +28,7 @@ namespace VNEngine
 
     class Branch : IComparable<Branch>
     {
-        public Branch(int id, string fgImageName, string bgImageName, string displayText)
+        public Branch(int id, string fgImageName = null, string bgImageName = null, string displayText = null)
         {
             AddScene(fgImageName, bgImageName, displayText);
 
@@ -43,6 +43,7 @@ namespace VNEngine
             ++_currLineId;
         }
 
+        //Compares the IDs of branches
         public int CompareTo(Branch other)
         {
             if (other == null)
