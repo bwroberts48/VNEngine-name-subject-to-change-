@@ -98,10 +98,7 @@
     <Resource Include="images\wheat.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\nextArrow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\maybe.png" />
+    <Content Include="images\nextArrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
