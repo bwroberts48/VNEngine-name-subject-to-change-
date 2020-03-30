@@ -20,15 +20,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Background="Pink" Foreground="White" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2" Grid.RowSpan="2">
-                <TextBlock TextWrapping="WrapWithOverflow">
+            <Rectangle Grid.ColumnSpan="2" Grid.RowSpan="2" Opacity=".5" Fill="Pink"/>
+            <TextBlock TextWrapping="WrapWithOverflow" Background="Transparent" Foreground="White" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2" Grid.RowSpan="2">
                     cYikesNode* yikes = new cYikesNode(new Yike("yikes dog")) cCompoundYike* cpndYike = new cCompoundYike(yikes);
-                </TextBlock>
-            </Label>
-            <Button Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0, 35, 10, 5" Background="Pink">
+            </TextBlock>
+            <Button Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0, 35, 10, 5" Opacity=".5" BorderThickness="0">
                 <Image Source="images\nextArrow.png"/>
             </Button>
         </Grid>
-
     </DockPanel>
 </Window>
