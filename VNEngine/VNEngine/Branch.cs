@@ -4,7 +4,6 @@
 * Date Created: 3/28/2020
 *
 * Class: Scene
-*   Inherits from IComparable
 *
 * Purpose: Creates and adds to a list of SceneLines with an ID for future reference
 *
@@ -15,7 +14,6 @@
 *   void AddScene(string fgImageName, string bgImageName, string displayText)
 *       Appends a scene to the current
 *       
-*   public int CompareTo(Object obj)
 *   
 ***********************************************************************************************************************************************************************************************************************/
 using System;
@@ -26,7 +24,7 @@ using System.Threading.Tasks;
 namespace VNEngine
 {
 
-    class Branch : IComparable<Branch>
+    class Branch
     {
         public Branch(int id, string fgImageName = null, string bgImageName = null, string displayText = null)
         {
@@ -44,13 +42,9 @@ namespace VNEngine
             ++_currLineId;
         }
 
-        //Compares the IDs of branches
-        public int CompareTo(Branch other)
+        public int ID
         {
-            if (other == null)
-                return 1;
-
-            return _id.CompareTo(other._id);
+            get { return _id; }
         }
 
         private List<Scene> m_scenes;

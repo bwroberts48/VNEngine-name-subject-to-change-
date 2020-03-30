@@ -25,14 +25,14 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using Graph;
+
 namespace VNEngine
 {
     public sealed class SceneManager
     {
         private SceneManager()
         {
-            _graph = new Graph<Branch, string>();
+            _graph = new BranchesGraph();
         }
 
         public void AddBranch(string fgImageName, string bgImageName, string displayText)
@@ -45,7 +45,7 @@ namespace VNEngine
         //Creates a connection from the startId to the endId with the choiceText as the data for the edge
         public void AddBranchConnection(int startId, int endId, string choiceText)
         {
-            _graph.InsertEdge(new Branch(startId), new Branch(endId), choiceText, 0, true);
+            _graph.InsertEdge(startId, endId, choiceText, 0, true);
         }
 
         public void SerializeScenes()
@@ -68,8 +68,8 @@ namespace VNEngine
 
         private static SceneManager _instance = null;
         private int _currSceneID = 0;
-        private Graph<Branch, string> _graph;
+        private BranchesGraph _graph;
 
-        private const String SAVE_FILE_PATH = "";
+        private const string SAVE_FILE_PATH = "..\\NTSC_Files";
     }
 }
