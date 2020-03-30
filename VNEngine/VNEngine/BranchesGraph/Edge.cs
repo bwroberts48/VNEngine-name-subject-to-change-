@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 
 namespace VNEngine
 {
+    [Serializable]
     class Edge
     {
         public Edge()

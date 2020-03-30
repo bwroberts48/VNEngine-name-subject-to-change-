@@ -21,6 +21,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace VNEngine
 {
+    [Serializable]
     class Scene
     {
         public Scene(int id, string fgImageName, string bgImageName, string displayText)

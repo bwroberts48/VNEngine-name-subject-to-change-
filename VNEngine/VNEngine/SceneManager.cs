@@ -51,7 +51,7 @@ namespace VNEngine
         public void SerializeScenes()
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("text.nstc", FileMode.Create, FileAccess.Write);
+            Stream stream = new FileStream(SAVE_FILE_PATH + "text.nstc", FileMode.Create, FileAccess.Write);
             formatter.Serialize(stream, _graph);
             stream.Close();
         }
@@ -70,6 +70,6 @@ namespace VNEngine
         private int _currSceneID = 0;
         private BranchesGraph _graph;
 
-        private const string SAVE_FILE_PATH = "..\\NTSC_Files";
+        private const string SAVE_FILE_PATH = "..\\NTSC_Files\\";
     }
 }

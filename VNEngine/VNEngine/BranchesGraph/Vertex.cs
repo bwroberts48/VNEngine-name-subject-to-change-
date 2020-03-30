@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 
 namespace VNEngine
 {
+    [Serializable]
     class Vertex
     {
         public Vertex()

@@ -32,6 +32,7 @@ using System.Threading.Tasks;
 
 namespace VNEngine
 {
+    [Serializable]
     class BranchesGraph
     {
         public BranchesGraph()
