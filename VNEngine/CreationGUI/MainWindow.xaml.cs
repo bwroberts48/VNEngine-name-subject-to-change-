@@ -36,6 +36,11 @@ namespace CreationGUI
                 (Int32.Parse(branchFromTB.Text), Int32.Parse(branchToTB.Text), branchDialogueTB.Text);
         }
 
+        private void SaveProject_Click(object sender, RoutedEventArgs e)
+        {
+            _gameManager.Scene_Manager.SerializeScenes();
+        }
+
         GameManager _gameManager;
     }
 }

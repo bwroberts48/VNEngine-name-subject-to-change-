@@ -61,7 +61,7 @@
                 <TextBox Grid.Column="1" Grid.Row="1" x:Name="bgPathTB"/>
                 <TextBox Grid.Column="1" Grid.Row="2" x:Name="displayTextTB"/>
 
-                <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Create Branch" x:Name="buttonCreateBranch" Click="CreateBranch_Click"/>
+                <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Create Branch" Click="CreateBranch_Click"/>
             </Grid>
             <!-- End of creating branch grid -->
 
@@ -85,11 +85,11 @@
                 <TextBox Grid.Column="1" Grid.Row="1" x:Name="branchToTB"/>
                 <TextBox Grid.Column="1" Grid.Row="2" x:Name="branchDialogueTB"/>
 
-                <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Connect Branches" x:Name="buttonConnectBranch" Click="ConnectBranch_Click"/>
+                <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Connect Branches" Click="ConnectBranch_Click"/>
             </Grid>
             <!-- End of bottom left merge branch grid -->
         </Grid>
         <!-- End of left creation grid -->
-        <Label Grid.Column="1"/>
+        <Button Grid.Column="1" Content="Save Project" Click="SaveProject_Click"/>
     </Grid>
 </Window>
