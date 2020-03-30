@@ -23,6 +23,7 @@
             <Setter Property="Foreground" Value="White"/>
         </Style>
     </Window.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -32,28 +33,63 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
+        <!-- For the left side (Creating branches and merging them-->
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
-            
-            <Label>Foreground Image Path</Label>
-            <Label Grid.Row="1">Background Image Path</Label>
-            <Label Grid.Row="2">Display Text</Label>
 
-            <TextBox Grid.Column="1" x:Name="fgPathTB"/>
-            <TextBox Grid.Column="1" Grid.Row="1" x:Name="bgPathTB"/>
-            <TextBox Grid.Column="1" Grid.Row="2" x:Name="displayTextTB"/>
+            <!--- For the top of the left side (creating branches)-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Create Branch" x:Name="buttonCreateBranch" Click="CreateBranch_Click"/>
+                <Label>Foreground Image Path</Label>
+                <Label Grid.Row="1">Background Image Path</Label>
+                <Label Grid.Row="2">Display Text</Label>
+
+                <TextBox Grid.Column="1" x:Name="fgPathTB"/>
+                <TextBox Grid.Column="1" Grid.Row="1" x:Name="bgPathTB"/>
+                <TextBox Grid.Column="1" Grid.Row="2" x:Name="displayTextTB"/>
+
+                <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Create Branch" x:Name="buttonCreateBranch" Click="CreateBranch_Click"/>
+            </Grid>
+            <!-- End of creating branch grid -->
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label>Start Branch</Label>
+                <Label Grid.Row="1">End Branch</Label>
+                <Label Grid.Row="2">Dialogue for Branch</Label>
+
+                <TextBox Grid.Column="1" x:Name="branchFromTBB"/>
+                <TextBox Grid.Column="1" Grid.Row="1" x:Name="branchToTB"/>
+                <TextBox Grid.Column="1" Grid.Row="2" x:Name="branchDialogueTB"/>
+
+                <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Connect Branches" x:Name="buttonConnectBranch" Click="ConnectBranch_Click"/>
+            </Grid>
+            <!-- End of bottom left merge branch grid -->
         </Grid>
+        <!-- End of left creation grid -->
         <Label Grid.Column="1"/>
     </Grid>
 </Window>

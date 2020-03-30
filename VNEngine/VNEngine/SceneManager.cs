@@ -14,12 +14,17 @@
 *  void AddScene(string fgImageName, string bgImageName, string displayText)
 *  void AddBranchConnection(int startId, int endId)
 *       Creates a directed edge from the Branch with the given startId to the Branch with the given endId
+*  void SerializeScenes()
+*       Serializes the underlaying data structure and puts it in a file
 ***********************************************************************************************************************************************************************************************************************/
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using Graph;
 namespace VNEngine
 {
@@ -27,20 +32,28 @@ namespace VNEngine
     {
         private SceneManager()
         {
-            m_graph = new Graph<Branch, string>();
+            _graph = new Graph<Branch, string>();
         }
 
         public void AddBranch(string fgImageName, string bgImageName, string displayText)
         {
             //Construct and add the new scene to the graph
-            m_graph.InsertVertex(new Branch(_currSceneID, fgImageName, bgImageName, displayText));
+            _graph.InsertVertex(new Branch(_currSceneID, fgImageName, bgImageName, displayText));
             ++_currSceneID;
         }
 
         //Creates a connection from the startId to the endId with the choiceText as the data for the edge
         public void AddBranchConnection(int startId, int endId, string choiceText)
         {
-            m_graph.InsertEdge(new Branch(startId), new Branch(endId), choiceText, 0, true);
+            _graph.InsertEdge(new Branch(startId), new Branch(endId), choiceText, 0, true);
+        }
+
+        public void SerializeScenes()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("text.nstc", FileMode.Create, FileAccess.Write);
+            formatter.Serialize(stream, _graph);
+            stream.Close();
         }
 
         public static SceneManager Instance
@@ -55,6 +68,8 @@ namespace VNEngine
 
         private static SceneManager _instance = null;
         private int _currSceneID = 0;
-        private Graph<Branch, string> m_graph;
+        private Graph<Branch, string> _graph;
+
+        private const String SAVE_FILE_PATH = "";
     }
 }
