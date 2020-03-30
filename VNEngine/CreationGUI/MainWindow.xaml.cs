@@ -30,6 +30,12 @@ namespace CreationGUI
             _gameManager.Scene_Manager.AddBranch(fgPathTB.Text, bgPathTB.Text, displayTextTB.Text);
         }
 
+        private void ConnectBranch_Click(object sender, RoutedEventArgs e)
+        {
+            _gameManager.Scene_Manager.AddBranchConnection
+                (Int32.Parse(branchFromTB.Text), Int32.Parse(branchToTB.Text), branchDialogueTB.Text);
+        }
+
         GameManager _gameManager;
     }
 }
