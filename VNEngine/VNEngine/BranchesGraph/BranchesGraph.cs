@@ -14,13 +14,13 @@
 *   int FindDataIndex(int id)
 *       Finds if the passed through id exists in the graph and returns the index if it does otherwise it returns -1
 *   void InsertVertex(Branch data)
-*       Appends a vertex to the graph and returns the index of its place in m_vertices
+*       Appends a vertex to the graph and returns the index of its place in _vertices
 *   void DeleteVertex(int id)
 *       Removes a vertex with the specified data and all associated edges from the graph
 *   public void InsertEdge(int startId, int endId, string edgeData, int weight = 0, bool insertDirectedEdge = false)
 *       Inserts an edge (or arc) between the two vertices that hold the passed in data
 *   void DeleteEdge(int startId, int endId, string data, bool deleteDirectedEdge = false)
-*       Deletes the undirected edge connecting the passed in start and end indicies of m_vertices, if deleteDirectedEdge is set then only the directed edge going from the start to the end is deleted
+*       Deletes the undirected edge connecting the passed in start and end indicies of _vertices, if deleteDirectedEdge is set then only the directed edge going from the start to the end is deleted
 *   public Vertex this[int i]
 *       Overload of the subscript operator
 ***********************************************************************************************************************************************************************************************************************/
@@ -33,11 +33,11 @@ using System.Threading.Tasks;
 namespace VNEngine
 {
     [Serializable]
-    class BranchesGraph
+    public class BranchesGraph
     {
         public BranchesGraph()
         {
-            m_vertices = new List<Vertex>();
+            _vertices = new List<Vertex>();
         }
 
         /********************************************************************************************************************************************************************
@@ -53,9 +53,9 @@ namespace VNEngine
         {
             int index = -1;
 
-            for (int i = 0; i < m_vertices.Count && index == -1; ++i)
+            for (int i = 0; i < _vertices.Count && index == -1; ++i)
             {
-                if (m_vertices[i].Data.ID == id)
+                if (_vertices[i].Data.ID == id)
                     index = i;
             }
 
@@ -70,7 +70,7 @@ namespace VNEngine
         *
         * Postcondition:
         *	If the data to add is already present in the graph a GraphException is thrown
-        *	Otherwise, a new Vertex with the given data is appended to m_vertices
+        *	Otherwise, a new Vertex with the given data is appended to _vertices
         *********************************************************************************************************************************************************************/
         public void InsertVertex(Branch data)
         {
@@ -78,7 +78,7 @@ namespace VNEngine
             if (FindDataIndex(data.ID) != -1)
                 throw new GraphException("Cannot have duplicate vertex data");
 
-            m_vertices.Add(new Vertex(data));
+            _vertices.Add(new Vertex(data));
         }
 
         /********************************************************************************************************************************************************************
@@ -100,17 +100,17 @@ namespace VNEngine
                 throw new GraphException("Could not vertex for deletion");
 
             //Remove the vertex
-            m_vertices.RemoveAt(index);
+            _vertices.RemoveAt(index);
 
             //For all vertices
-            for (int i = 0; i < m_vertices.Count; ++i)
+            for (int i = 0; i < _vertices.Count; ++i)
             {
                 //Check each edge and delete those associated with the deleted vertex data
-                for (int j = 0; j < m_vertices[i].Edges.Count; ++j)
+                for (int j = 0; j < _vertices[i].Edges.Count; ++j)
                 {
                     //If the current edge is a match remove it
-                    if (m_vertices[i][j].VertexId == id)
-                        m_vertices[i].Edges.RemoveAt(j);
+                    if (_vertices[i][j].VertexId == id)
+                        _vertices[i].Edges.RemoveAt(j);
                 }
             }
         }
@@ -126,7 +126,7 @@ namespace VNEngine
         *   If NEGATIVE_WEIGHTS_ALLOWED is not set and the weight is less than 0 a GraphException is thrown
         *   If the start or end vertex indices are out of bounds of the graph a GraphException is thrown
         *	Otherwise, an undirected edge (or directed edge if insertDirectedEdge is set) is inserted between the vertices located at the passed in 
-        *	    start and end vertex indices of the graph's m_vertices
+        *	    start and end vertex indices of the graph's _vertices
         *********************************************************************************************************************************************************************/
         public void InsertEdge(int startId, int endId, string edgeData, int weight = 0, bool insertDirectedEdge = false)
         {
@@ -144,13 +144,13 @@ namespace VNEngine
 
             //Create a new directed edge that connects the start vertex to the end vertex and add it to the edgelist of the start vertex
             Edge directedEdge = new Edge(edgeData, endId, weight);
-            m_vertices[startIndex].InsertEdge(directedEdge);
+            _vertices[startIndex].InsertEdge(directedEdge);
 
             //If the user wants to insert the directed edge and if the first edge wasn't cyclical also insert a directed edge from the end vertex to the start vertex
             if (!insertDirectedEdge && startId != endId)
             {
                 directedEdge = new Edge(edgeData, startId, weight);
-                m_vertices[endIndex].InsertEdge(directedEdge);
+                _vertices[endIndex].InsertEdge(directedEdge);
             }
         }
 
@@ -164,7 +164,7 @@ namespace VNEngine
         * Postcondition:
         *   If the start or end vertex indices are out of bounds of the graph a GraphException is thrown
         *	Otherwise, the undirected edge (or directed edge if deleteDirectedEdge is set) is deleted between the vertices located at the passed in 
-        *	    start and end vertex indices of the graph's m_vertices
+        *	    start and end vertex indices of the graph's _vertices
         *********************************************************************************************************************************************************************/
         public void DeleteEdge(int startId, int endId, string data, bool deleteDirectedEdge = false)
         {
@@ -177,11 +177,11 @@ namespace VNEngine
             if (endIndex == -1)
                 throw new GraphException("Could not find start vertex for edge deletion");
 
-            m_vertices[startIndex].DeleteEdge(data);
+            _vertices[startIndex].DeleteEdge(data);
 
             //Remove an edge located from the end vertex to the start if deleteDirectedEdge was not flagged
             if (!deleteDirectedEdge)
-                m_vertices[endIndex].DeleteEdge(data);
+                _vertices[endIndex].DeleteEdge(data);
         }
 
         /********************************************************************************************************************************************************************
@@ -192,14 +192,14 @@ namespace VNEngine
         *	None
         *
         * Postcondition:
-        *	Returns the Vertex at the given index of m_vertices
+        *	Returns the Vertex at the given index of _vertices
         *********************************************************************************************************************************************************************/
-        public Vertex this[int i]
+        private Vertex this[int i]
         {
-            get { return m_vertices[i]; }
+            get { return _vertices[i]; }
         }
 
-        public List<Vertex> m_vertices { get; }
+        private List<Vertex> _vertices;
     }
 
     //Holds globals to be used within the Graph data structure

@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 namespace VNEngine
 {
     [Serializable]
-    class Branch
+    public class Branch
     {
         public Branch(int id, string fgImageName = null, string bgImageName = null, string displayText = null)
         {
