@@ -100,5 +100,11 @@
   <ItemGroup>
     <Resource Include="images\nextArrow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VNEngine\VNEngine.csproj">
+      <Project>{c030c05d-08a0-4b1c-8fe3-5fea4c141dcb}</Project>
+      <Name>VNEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

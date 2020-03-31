@@ -48,12 +48,20 @@ namespace VNEngine
             _graph.InsertEdge(startId, endId, choiceText, 0, true);
         }
 
+        //Throws a SerializationException if _graph was not successfully serialized
         public void SerializeScenes()
         {
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(SAVE_FILE_PATH + "text.nstc", FileMode.Create, FileAccess.Write);
-            formatter.Serialize(stream, _graph);
-            stream.Close();
+            try
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream(SAVE_FILE_PATH + "text.nstc", FileMode.Create, FileAccess.Write);
+                formatter.Serialize(stream, _graph);
+                stream.Close();
+            }
+            catch
+            {
+                throw new SerializationException("Could not serialize SceneManager to \"" + SAVE_FILE_PATH + "\" successfully");
+            }
         }
 
         public static SceneManager Instance
@@ -70,6 +78,6 @@ namespace VNEngine
         private int _currSceneID = 0;
         private BranchesGraph _graph;
 
-        private const string SAVE_FILE_PATH = "..\\NTSC_Files\\";
+        private const string SAVE_FILE_PATH = "..\\NSTC_Files\\";
     }
 }
